@@ -1,0 +1,52 @@
+service: simple-blog-api
+
+plugins:
+  - serverless-esbuild
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  httpApi:
+    cors:
+      allowedOrigins:
+        - "*"
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+        - X-Amz-Date
+        - X-Api-Key
+        - X-Amz-Security-Token
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      # REMOVE allowCredentials when using "*"
+      maxAge: 86400
+
+  environment:
+    MONGODB_URI: ${self:custom.environment.MONGODB_URI}
+    JWT_SECRET: ${self:custom.environment.JWT_SECRET}
+    DB_NAME: ${self:custom.environment.DB_NAME, 'blog-platform'}
+    JWT_EXPIRY: ${self:custom.environment.JWT_EXPIRY, '7d'}
+
+custom:
+  environment: ${file(serverless.env.yml):${self:provider.stage}}
+  esbuild:
+    bundle: true
+    minify: false
+    target: node20
+    sourcemap: true
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: any
+    timeout: 10

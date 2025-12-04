@@ -1,0 +1,42 @@
+{
+  "name": "blog-platform-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fullstack blog platform monorepo",
+  "scripts": {
+    "dev:frontend": "cd frontend && pnpm dev",
+    "dev:server": "cd server && pnpm dev",
+    "dev": "concurrently \"pnpm dev:frontend\" \"pnpm dev:server\"",
+    "build:frontend": "cd frontend && pnpm build",
+    "build:server": "cd server && pnpm build",
+    "build": "pnpm build:frontend && pnpm build:server",
+    "lint:frontend": "cd frontend && pnpm lint",
+    "lint:server": "cd server && pnpm lint",
+    "lint": "pnpm lint:frontend && pnpm lint:server",
+    "typecheck:frontend": "cd frontend && pnpm typecheck",
+    "typecheck:server": "cd server && pnpm typecheck",
+    "typecheck": "pnpm typecheck:frontend && pnpm typecheck:server",
+    "test:frontend": "cd frontend && pnpm test",
+    "test:server": "cd server && pnpm test",
+    "test": "pnpm test:frontend && pnpm test:server",
+    "deploy:server": "cd server && pnpm deploy",
+    "clean": "rm -rf node_modules && cd frontend && pnpm clean && cd ../server && pnpm clean"
+  },
+  "keywords": [
+    "blog",
+    "serverless",
+    "react",
+    "aws",
+    "monorepo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
