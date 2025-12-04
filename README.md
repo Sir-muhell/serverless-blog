@@ -10,7 +10,7 @@ A modern, high-performance blog platform built with the MERN stack principles ad
 **Backend:** AWS Lambda (Node.js/Express), API Gateway  
 **Database:** MongoDB Atlas  
 **API Base URL:** https://4meu2ql7zc.execute-api.us-east-1.amazonaws.com  
-**Repository:** https://github.com/yourusername/blog-platform
+**Repository:** https://github.com/Sir-muhell/serverless-blog
 
 ## 🏗️ Architecture Overview
 
