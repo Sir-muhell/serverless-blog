@@ -7,7 +7,7 @@ A modern, high-performance blog platform built with the MERN stack principles ad
 **Status**
 
 **Frontend:** React, TypeScript, Vite, Tailwind CSS  
-**Backend:** AWS Lambda (Node.js/Express), API Gateway  
+**Backend:** AWS Lambda (Node.js), API Gateway  
 **Database:** MongoDB Atlas  
 **FrontEnd Live URL** https://main.d1tcrlqagl125k.amplifyapp.com/
 **API Base URL:** https://4meu2ql7zc.execute-api.us-east-1.amazonaws.com  
